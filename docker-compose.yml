@@ -9,7 +9,3 @@ services:
       MYSQL_DATABASE: notification
     ports:
       - "3306:3306"
-    volumes:
-      - ./database:/var/lib/mysql
-volumes:
-    database:
