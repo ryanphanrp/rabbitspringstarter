@@ -3,9 +3,6 @@ server:
 spring:
   application:
     name: notification
-  pa:
-    hibernate:
-      ddl-auto: update
   datasource:
     password: '112233'
     driver-class-name: com.mysql.cj.jdbc.Driver
