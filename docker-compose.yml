@@ -1,0 +1,15 @@
+version: "3"
+services:
+  database:
+    image: mysql:latest
+    container_name: database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 112233
+      MYSQL_DATABASE: notification
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database:/var/lib/mysql
+volumes:
+    database:

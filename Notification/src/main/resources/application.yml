@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: notification
+  pa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    password: '112233'
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/notification
