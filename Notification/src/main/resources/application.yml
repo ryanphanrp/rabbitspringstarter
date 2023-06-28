@@ -8,3 +8,22 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     url: jdbc:mysql://localhost:3306/notification
+  jpa:
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    virtual-host: fwbqbdnc
+    host: gerbil-01.rmq.cloudamqp.com
+    port: 5672
+    username: fwbqbdnc
+    password: IraMUuhVfAPyy9KSt4v1YFZgY1_QyjoO
+rabbitmq:
+  exchange:
+    name: notification_exchange
+  routing:
+    key: notification_routing_key
+  queue:
+    service:
+      name: notification_service_queue
+    backend:
+      name: notification_backend_queue

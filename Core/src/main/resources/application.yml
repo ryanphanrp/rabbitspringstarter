@@ -3,3 +3,19 @@ server:
 spring:
   application:
     name: core
+  rabbitmq:
+    virtual-host: fwbqbdnc
+    host: gerbil-01.rmq.cloudamqp.com
+    port: 5672
+    username: fwbqbdnc
+    password: IraMUuhVfAPyy9KSt4v1YFZgY1_QyjoO
+rabbitmq:
+  exchange:
+    name: notification_exchange
+  routing:
+    key: notification_routing_key
+  queue:
+    service:
+      name: notification_service_queue
+    backend:
+      name: notification_backend_queue
