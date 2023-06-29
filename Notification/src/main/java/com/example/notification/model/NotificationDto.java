@@ -1,7 +1,9 @@
 package com.example.notification.model;
 
+import java.io.Serializable;
+
 public record NotificationDto(Integer notificationId, Integer userId, String title,
-                              String message) {
+                              String message) implements Serializable {
 
   public static NotificationDto from(Notification notification) {
     return new NotificationDto(

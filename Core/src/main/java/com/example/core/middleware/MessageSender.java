@@ -1,25 +1,22 @@
 package com.example.core.middleware;
 
-import com.example.core.dto.NotificationResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class MessageHandler {
+public class MessageSender {
     private final RabbitTemplate rabbitTemplate;
 
-    @Value("${rabbitmq.queue.backend.name}")
+    @Value("${rabbitmq.queue.service.name}")
     private String queueName;
 
-    public NotificationResponse receiveMessage() {
-        log.info("Receiving message");
-        return rabbitTemplate.receiveAndConvert(queueName, new ParameterizedTypeReference<NotificationResponse>() {
-        });
+    public void sendMessage(Object event) {
+        log.info("Sending message: {}", event);
+        rabbitTemplate.convertAndSend(queueName, event);
     }
 }
